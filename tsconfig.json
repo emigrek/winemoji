@@ -7,12 +7,7 @@
         "resolveJsonModule": true,
         "esModuleInterop": true,
         "moduleResolution": "node",
-        "strict": true,
-        "paths": {
-            "@/*": [
-                "./src/*"
-            ]
-        }
+        "strict": true
     },
     "include": [
         "./src/*"
