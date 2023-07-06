@@ -1,17 +1,23 @@
 import { lib } from "winmojilib";
 import type { Emoji, Group, Subgroup } from "./types";
-import _ from "underscore";
+import { randomFromArray } from "./utils";
 
-const emojis: Emoji[] = Object.assign([], Object.values(lib));
+export const emojis: Emoji[] = Object.assign([], Object.values(lib));
 
-const getRandomEmojiFromGroup = (group: Group): Emoji | undefined => {
+export const getRandomEmoji = (): Emoji => {
+    return randomFromArray(emojis);
+}
+
+export const getEmojisMatchingKeyword = (keyword: string): Emoji[] => {
+    return emojis.filter((emoji: Emoji) => emoji.keywords.includes(keyword));
+}
+
+export const getRandomEmojiFromGroup = (group: Group): Emoji => {
     const filtered = emojis.filter((emoji: Emoji) => emoji.group === group);
-    return _.sample(filtered);
+    return randomFromArray(filtered);
 }
 
-const getRandomEmojiFromSubgroup = (subgroup: Subgroup): Emoji | undefined => {
+export const getRandomEmojiFromSubgroup = (subgroup: Subgroup): Emoji => {
     const filtered = emojis.filter((emoji: Emoji) => emoji.subgroup === subgroup);
-    return _.sample(filtered);
+    return randomFromArray(filtered);
 }
-
-export { getRandomEmojiFromGroup, getRandomEmojiFromSubgroup };
