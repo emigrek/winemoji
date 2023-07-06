@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "lint": "eslint . --ext .ts",
     "prepare": "husky install",
-    "build": "tsc"
+    "build": "tsc",
+    "start": "ts-node src/index.ts"
   },
   "author": "emigrek",
   "license": "MIT",
@@ -18,6 +20,7 @@
     "typescript": "^5.1.6"
   },
   "dependencies": {
+    "ts-node": "^10.9.1",
     "winmojilib": "^0.3.3"
   }
 }
