@@ -118,3 +118,10 @@ export interface Emoji {
     subgroup: string
     hexcode: string
 }
+
+export interface CombinationEmoji {
+    emoji: Emoji,
+    keywordsCoverage: number
+}
+
+export type EmojiResolvable = string | Emoji;
