@@ -114,8 +114,8 @@ export interface Emoji {
     char: string
     keywords: string[]
     name: string
-    group: string
-    subgroup: string
+    group: Group
+    subgroup: Subgroup
     hexcode: string
 }
 
