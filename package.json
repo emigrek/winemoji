@@ -1,19 +1,30 @@
 {
   "name": "wemoji",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.1.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "author": "emigrek",
+  "license": "MIT",
+  "keywords": [
+    "emoji",
+    "emojis",
+    "emotions",
+    "emoticons",
+    "utility",
+    "unicode",
+    "windows",
+    "winmojilib",
+    "typescript",
+    "js",
+    "node"
+  ],
   "scripts": {
     "lint": "eslint . --ext .ts",
     "prepare": "husky install",
     "build": "tsc",
     "start": "ts-node src/index.ts"
   },
-  "author": "emigrek",
-  "license": "MIT",
   "devDependencies": {
-    "@types/underscore": "^1.11.5",
     "@typescript-eslint/eslint-plugin": "^5.61.0",
     "@typescript-eslint/parser": "^5.61.0",
     "eslint": "^8.44.0",
@@ -22,7 +33,6 @@
   },
   "dependencies": {
     "ts-node": "^10.9.1",
-    "underscore": "^1.13.6",
     "winmojilib": "^0.3.3"
   }
 }
