@@ -1,6 +1,8 @@
 import { lib } from "winmojilib";
-import type { CombinationEmoji, Emoji, EmojiResolvable, Group, Subgroup } from "./types";
 import { getArraysIntersection, randomFromArray } from "./utils";
+import { Emoji, EmojiResolvable, SimilarEmoji, Group, Subgroup } from "./types";
+
+export * from "./enums";
 
 /**
 * Holds all emojis from winmojilib
@@ -15,7 +17,7 @@ export const emojis: Emoji[] = Object.assign([], Object.values(lib));
 * @returns {Emoji | undefined}
 */
 export const resolveEmoji = (emoji: EmojiResolvable): Emoji | undefined => {
-    if (typeof emoji !== 'string') return emoji as Emoji;
+    if (typeof emoji !== 'string') return emojis.find((x: Emoji) => x.hexcode === emoji.hexcode);
     return emojis.find((x: Emoji) => 
         x.char === emoji || 
         x.name === emoji || 
@@ -36,10 +38,11 @@ export const getRandomEmoji = (): Emoji => {
 /**
 * Returns an array of emojis that are similar to the given emoji.
 * @param {EmojiResolvable} emoji Could be Emoji object itself or it's char, name or hexcode.
-* @returns {CombinationEmoji[]}
+* @param {number} [limit] Limit the number of results. Defaults to 10.
+* @returns {SimilarEmoji[]}
 */
-export const getCombinationEmojis = (emoji: EmojiResolvable): CombinationEmoji[] => {
-    const e = typeof emoji === 'string' ? resolveEmoji(emoji) : emoji;
+export const getSimilarEmojis = (emoji: EmojiResolvable, limit?: number): SimilarEmoji[] => {
+    const e = resolveEmoji(emoji);
     if (!e) return [];
 
     return emojis
@@ -54,20 +57,31 @@ export const getCombinationEmojis = (emoji: EmojiResolvable): CombinationEmoji[]
         .map((x) => (
             {
                 emoji: x.emoji,
-                keywordsCoverage: x.intersection / e.keywords.length,
+                similarity: Number((x.intersection / e.keywords.length).toFixed(2)),
             }
         ))
-        .sort((a, b) => b.keywordsCoverage - a.keywordsCoverage);
+        .sort((a, b) => b.similarity - a.similarity)
+        .slice(0, limit || 10);
+}
+
+/**
+ * Returns an emoji that is similar to the given emoji.
+ * Returns undefined if no emoji is found.
+ * @param {EmojiResolvable} emoji Could be Emoji object itself or it's char, name or hexcode.
+ * @returns {CombinationEmoji | undefined}
+ */
+export const getSimilarEmoji = (emoji: EmojiResolvable): SimilarEmoji | undefined => {
+    return getSimilarEmojis(emoji, 1).at(0);
 }
 
 /**
 * Returns a random emoji that is similar to the given emoji.
 * Returns undefined if no emoji is found.
 * @param {EmojiResolvable} emoji Could be Emoji object itself or it's char, name or hexcode.
-* @returns {CombinationEmoji | undefined}
+* @returns {SimilarEmoji | undefined}
 */
-export const getRandomCombinationEmoji = (emoji: EmojiResolvable): CombinationEmoji | undefined => {
-    return randomFromArray(getCombinationEmojis(emoji));
+export const getRandomSimilarEmoji = (emoji: EmojiResolvable): SimilarEmoji | undefined => {
+    return randomFromArray(getSimilarEmojis(emoji));
 }
 
 /**

@@ -7,13 +7,13 @@
         "resolveJsonModule": true,
         "esModuleInterop": true,
         "moduleResolution": "node",
-        "strict": true
+        "strict": true,
+        "skipLibCheck": true
     },
     "include": [
-        "./src/*"
+        "./src/*.ts"
     ],
     "exclude": [
-        "node_modules",
-        "**/__tests__/*"
+        "node_modules"
     ]
 }
