@@ -1,17 +1,17 @@
-# `wemoji`
+# `winemoji`
 
 Collection of utility functions wrapped around emojis supported by Windows. Built with emoji data from [winmojilib](https://github.com/ryanSN/winmojilib) package.
 
 ## Installation
 
 ```bash
-npm install wemoji
+npm install winemoji
 ```
 
 ## Usage
 
 ```ts
-import { emojis } from 'wemoji';
+import { emojis } from 'winemoji';
 
 emojis
 /*
@@ -28,7 +28,7 @@ emojis
 */
 ```
 ```ts
-import { resolveEmoji } from "wemoji";
+import { resolveEmoji } from "winemoji";
 
 resolveEmoji("frog")
 resolveEmoji("🐸")
@@ -45,7 +45,7 @@ resolveEmoji("1F438")
 */
 ```
 ```ts
-import { getRandomEmoji } from "wemoji";
+import { getRandomEmoji } from "winemoji";
 
 getRandomEmoji()
 /*
@@ -60,7 +60,7 @@ getRandomEmoji()
 */
 ```
 ```ts
-import { getSimilarEmojis } from "wemoji";
+import { getSimilarEmojis } from "winemoji";
 
 getSimilarEmojis("🍳")
 /*
@@ -91,7 +91,7 @@ getSimilarEmojis("🍳")
 */
 ```
 ```ts
-import { getRandomSimilarEmoji } from "wemoji";
+import { getRandomSimilarEmoji } from "winemoji";
 
 getRandomSimilarEmoji("🍳")
 /*
@@ -105,7 +105,7 @@ getRandomSimilarEmoji("🍳")
 */
 ```
 ```ts
-import { getEmojisMatchingKeyword } from "wemoji";
+import { getEmojisMatchingKeyword } from "winemoji";
 
 getEmojisMatchingKeyword("ball")
 /*
@@ -127,7 +127,7 @@ getEmojisMatchingKeyword("ball")
 */
 ```
 ```ts
-import { getEmojisMatchingKeywords } from "wemoji";
+import { getEmojisMatchingKeywords } from "winemoji";
 
 getEmojisMatchingKeywords(["chocolate","bar"])
 /*
@@ -144,7 +144,7 @@ getEmojisMatchingKeywords(["chocolate","bar"])
 */
 ```
 ```ts
-import { getEmojisFromGroup, Groups } from "wemoji";
+import { getEmojisFromGroup, Groups } from "winemoji";
 
 getEmojisFromGroup(Groups.AnimalsAndNature);
 /*
@@ -166,7 +166,7 @@ getEmojisFromGroup(Groups.AnimalsAndNature);
 */
 ```
 ```ts
-import { getEmojisFromSubgroup, Subgroups } from "wemoji";
+import { getEmojisFromSubgroup, Subgroups } from "winemoji";
 
 getEmojisFromSubgroup(Subgroups.Music);
 /*
