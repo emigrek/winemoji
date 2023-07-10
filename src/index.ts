@@ -20,7 +20,7 @@ export const resolveEmoji = (emoji: EmojiResolvable): Emoji | undefined => {
     if (typeof emoji !== 'string') return emojis.find((x: Emoji) => x.hexcode === emoji.hexcode);
     return emojis.find((x: Emoji) => 
         x.char === emoji || 
-        x.name === emoji || 
+        x.name.includes(emoji) || 
         x.hexcode === emoji ||
         x.name.split("_").join(" ") === emoji || 
         x.keywords.includes(emoji)
