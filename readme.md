@@ -1,5 +1,10 @@
 # `winemoji`
 
+[![NPM Version](https://img.shields.io/npm/v/winemoji.svg?style=flat-square)](https://www.npmjs.com/package/winemoji)
+[![NPM Downloads](https://img.shields.io/npm/dm/winemoji.svg?style=flat-square)](https://www.npmjs.com/package/winemoji)
+![GitHub](https://img.shields.io/github/license/emigrek/winemoji)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/emigrek/winemoji)
+
 Collection of utility functions wrapped around emojis supported by Windows. Built with emoji data from [winmojilib](https://github.com/ryanSN/winmojilib) package.
 
 ## Installation
@@ -10,6 +15,7 @@ npm install winemoji
 
 ## Usage
 
+### Variables
 ```ts
 import { emojis } from 'winemoji';
 
@@ -27,6 +33,34 @@ emojis
     ]
 */
 ```
+### Enums
+```ts
+import { Groups } from 'winemoji';
+
+Groups
+/*
+    {
+        AnimalsAndNature = 'animals-nature',
+        SmileysAndEmotion = 'smileys-emotion',
+        FoodAndDrink = 'food-drink',
+        ...
+    }
+*/
+```
+```ts
+import { Subgroups } from 'winemoji';
+
+Subgroups
+/*
+    {
+        Drink = 'drink',
+        Clothing = 'clothing',
+        HairStyle = 'hair-style',
+        ...
+    }
+*/
+```
+### Functions
 ```ts
 import { resolveEmoji } from "winemoji";
 
