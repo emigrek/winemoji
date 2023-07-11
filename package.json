@@ -1,10 +1,16 @@
 {
   "name": "winemoji",
-  "version": "0.1.0",
-  "main": "./dist/index.js",
-  "types": "./dist/types.d.ts",
+  "version": "1.0.7",
   "author": "emigrek",
+  "type": "commonjs",
   "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "readme.md",
+    "package.json"
+  ],
   "keywords": [
     "emoji",
     "emojis",
@@ -27,18 +33,15 @@
     "coverage": "jest --coverage"
   },
   "devDependencies": {
-    "@jest/globals": "^27.5.1",
-    "@types/jest": "^29.5.2",
+    "@types/jest": "^29.5.3",
     "@typescript-eslint/eslint-plugin": "^5.61.0",
     "@typescript-eslint/parser": "^5.61.0",
     "eslint": "^8.44.0",
     "husky": "^8.0.3",
-    "jest": "^25.0.0",
-    "ts-jest": "^27.0.3",
-    "typescript": "^5.1.6"
-  },
-  "dependencies": {
+    "jest": "^29.6.1",
+    "ts-jest": "^29.1.1",
     "ts-node": "^10.9.1",
+    "typescript": "^5.1.6",
     "winmojilib": "^0.3.3"
   },
   "jest": {
